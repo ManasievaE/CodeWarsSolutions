@@ -25,7 +25,7 @@ function getMichaelLastName(inputText) {
 // for(i=0; i<text.length; i++){
 
 // if (text[i].match(/(Michael [A-Z]\w+\b)/g)) {
-//     lastNames.push(text[i])
+//     lastNames.push(text[i+1])
 //    } else {
 //      return 0
 //    }
