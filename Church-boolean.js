@@ -26,7 +26,7 @@ const And = (A) => (B) => A(B)(A);
 const Or = (A) => (B) => A(A)(B);
 const Xor = (A) => (B) => A(Not(B))(B);
 
-//EXPLAINED in others solutions
+//EXPLAINED (found in the solutions)
 
 // const Not = A => /*if*/A/*then*/(False)/*else*/(True)
 // const And = A => B => /*if*/A/*then*/(B)/*else*/(False);
