@@ -33,6 +33,8 @@ function getGoodOldDay(input) {
   let y = input[2];
 
   date.setFullYear(y);
+
+  // m-1 is nessesary beacuse of the counting of months (0-11)???
   date.setMonth(m - 1);
   date.setDate(d);
   return week[date.getDay()];
