@@ -7,9 +7,19 @@
 // abc(); // should return 'c' on this third call
 // abc(); // should return 'a' again on this fourth call
 
-const makeLooper =
-  (str, i = 0) =>
-  () =>
-    str.substr(i++ % str.length, 1);
+// How can you solve this with module operatot?
+
+// const makeLooper =
+//   (str, i = 0) =>
+//   () =>
+//     str.substr(i++ % str.length, 1);
 
 //successive invocations - последователни повикувања
+
+function makeLooper(str) {
+  let count = 0;
+  return () => {
+    if (count >= str.length) count = 0;
+    return str[count++];
+  };
+}
