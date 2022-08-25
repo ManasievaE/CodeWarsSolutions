@@ -27,30 +27,53 @@
 
 // HELP, HELP, HELP!!!
 
+// function isBalanced(s, caps) {
+//   let capsArr = caps.split("");
+//   let arr = s.split("");
+//   let stack = [];
+
+//   arr.forEach((el, ix) => {
+//     if (capsArr.includes(el)) {
+//       stack.push(el);
+
+//       if (
+//         (stack.length >= 2 &&
+//           capsArr.indexOf(el) - 1 ===
+//             capsArr.indexOf(stack[stack.length - 2])) ||
+//         stack[stack.length - 1] === stack[stack.length - 2]
+//       ) {
+//         stack.pop();
+//         stack.pop();
+//       } else return false;
+//     }
+//   });
+
+//   if (stack.length == 0) {
+//     return true;
+//   }
+
+//   return false;
+// }
+
 function isBalanced(s, caps) {
-  let capsArr = caps.split("");
-  let arr = s.split("");
-  let stack = [];
+  var pairs = {};
+  var closers = {};
 
-  arr.forEach((el, ix) => {
-    if (capsArr.includes(el)) {
-      stack.push(el);
-
-      if (
-        (stack.length >= 2 &&
-          capsArr.indexOf(el) - 1 ===
-            capsArr.indexOf(stack[stack.length - 2])) ||
-        stack[stack.length - 1] === stack[stack.length - 2]
-      ) {
-        stack.pop();
-        stack.pop();
-      } else return false;
-    }
-  });
-
-  if (stack.length == 0) {
-    return true;
+  for (var i = 0; i < caps.length; i = i + 2) {
+    pairs[caps[i]] = caps[i + 1];
+    closers[caps[i + 1]] = true;
   }
 
-  return false;
+  var opened = [];
+  for (i = 0; i < s.length; i++) {
+    if (opened.length > 0 && s[i] == opened[opened.length - 1]) {
+      opened.pop();
+    } else if (pairs[s[i]]) {
+      opened.push(pairs[s[i]]);
+    } else if (closers[s[i]]) {
+      return false;
+    }
+  }
+
+  return opened.length == 0;
 }
