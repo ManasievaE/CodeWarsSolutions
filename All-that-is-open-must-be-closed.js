@@ -25,7 +25,7 @@
 // isBalanced("Sensei says 'yes'!", "''")       // => True
 // isBalanced("Sensei say's no!", "''")         // => False
 
-// HELP, HELP, HELP!!!
+// HELP!!!
 
 // function isBalanced(s, caps) {
 //   let capsArr = caps.split("");
